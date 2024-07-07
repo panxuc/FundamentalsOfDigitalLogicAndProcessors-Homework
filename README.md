@@ -1,1 +1,5 @@
-# FundamentalsOfDigitalLogicAndProcessors-Homework
+# 数字逻辑与处理器基础（英） 大作业
+
+此仓库只用作备份，不可作为作业参考，不可抄袭。
+
+此仓库包含[汇编大作业](1/README.md)和[处理器大作业](2/README.md)。

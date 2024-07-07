@@ -1,0 +1,24 @@
+// Data Input: X = [[X11, X12, X13, X14, X15, X16, X17, X18], [X21, X22, X23, X24, X25, X26, X27, X28]]
+// Data Input: Y = [[Y11, Y12], [Y21, Y22], [Y31, Y32], [Y41, Y42], [Y51, Y52], [Y61, Y62], [Y71, Y72], [Y81, Y82]]
+
+// Data Output: Z = matmul(X,Y) = [[Z11, Z12], [Z21, Z22]]
+
+// Calculation in cpu: Z11 = X11*Y11 + X12*Y21 + X13*Y31 + X14*Y41 + X15*Y51 + X16*Y61 + X17*Y71 + X18*Y81
+// Calculation in cpu: Z12 = X11*Y12 + X12*Y22 + X13*Y32 + X14*Y42 + X15*Y52 + X16*Y62 + X17*Y72 + X18*Y82
+// Calculation in cpu: Z21 = X21*Y11 + X22*Y21 + X23*Y31 + X24*Y41 + X25*Y51 + X26*Y61 + X27*Y71 + X28*Y81
+// Calculation in cpu: Z22 = X21*Y12 + X22*Y22 + X23*Y32 + X24*Y42 + X25*Y52 + X26*Y62 + X27*Y72 + X28*Y82
+
+// paste in DataMemory.v 
+
+RAM_data[0] <= 32'hd328fef9; // X11, X12, X13, X14, to be stored in $t0
+RAM_data[1] <= 32'h0324063a; // X15, X16, X17, X18, to be stored in $t1
+RAM_data[2] <= 32'h12da0c13; // X21, X22, X23, X24, to be stored in $t2
+RAM_data[3] <= 32'hde1015d6; // X25, X26, X27, X28, to be stored in $t3
+
+RAM_data[4] <= 32'hdaf20624; // Y11, Y21, Y31, Y41, to be stored in $t4
+RAM_data[5] <= 32'hc31f27c9; // Y51, Y61, Y71, Y81, to be stored in $t5
+RAM_data[6] <= 32'h3ce4c0c6; // Y12, Y22, Y32, Y42, to be stored in $t6
+RAM_data[7] <= 32'h12ea09c2; // Y52, Y62, Y72, Y82, to be stored in $t7
+
+for (i = 8; i < RAM_SIZE; i = i + 1)
+	RAM_data[i] <= 32'h00000000;
